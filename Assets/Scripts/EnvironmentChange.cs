@@ -12,6 +12,12 @@ public class EnvironmentChange : MonoBehaviour
 
     public float transitionTime = 0.25f;
 
+    private void Update()
+    {
+        if (house <= 0)
+            outdoor.TransitionTo(transitionTime);
+    }
+
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "House")
