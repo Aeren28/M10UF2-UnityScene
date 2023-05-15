@@ -6,6 +6,8 @@ public class FoostepsSound : MonoBehaviour
 {
     public AudioClip[] foostepsOnWater;
     public AudioClip[] foostepsOnGround;
+    public AudioClip[] foostepsOnWood;
+    public AudioClip[] foostepsOnStone;
 
     public string material;
 
@@ -27,6 +29,16 @@ public class FoostepsSound : MonoBehaviour
                     aSource.PlayOneShot(foostepsOnWater[Random.Range(0, foostepsOnWater.Length)]);
                 break;
 
+            case "Stone":
+                if (foostepsOnStone.Length > 0)
+                    aSource.PlayOneShot(foostepsOnStone[Random.Range(0, foostepsOnStone.Length)]);
+                break;
+
+            case "Wood":
+                if (foostepsOnWood.Length > 0)
+                    aSource.PlayOneShot(foostepsOnWood[Random.Range(0, foostepsOnWood.Length)]);
+                break;
+
             default:
                 break;
         }
@@ -40,6 +52,12 @@ public class FoostepsSound : MonoBehaviour
                 material = collision.gameObject.tag;
                 break;
             case "Water":
+                material = collision.gameObject.tag;
+                break;
+            case "Stone":
+                material = collision.gameObject.tag;
+                break;
+            case "Wood":
                 material = collision.gameObject.tag;
                 break;
 
