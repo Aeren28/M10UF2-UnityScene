@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FoostepsSound : MonoBehaviour
 {
-    public AudioClip[] foostepsOnGrass;
-    public AudioClip[] foostepsOnWood;
+    public AudioClip[] foostepsOnWater;
+    public AudioClip[] foostepsOnGround;
 
     public string material;
 
@@ -17,14 +17,14 @@ public class FoostepsSound : MonoBehaviour
 
         switch (material)
         {
-            case "Wood":
-                if (foostepsOnWood.Length > 0)
-                    aSource.PlayOneShot(foostepsOnWood[Random.Range(0, foostepsOnWood.Length)]);
+            case "Ground":
+                if (foostepsOnGround.Length > 0)
+                    aSource.PlayOneShot(foostepsOnGround[Random.Range(0, foostepsOnGround.Length)]);
                 break;
 
-            case "Grass":
-                if (foostepsOnGrass.Length > 0)
-                    aSource.PlayOneShot(foostepsOnGrass[Random.Range(0, foostepsOnGrass.Length)]);
+            case "Water":
+                if (foostepsOnWater.Length > 0)
+                    aSource.PlayOneShot(foostepsOnWater[Random.Range(0, foostepsOnWater.Length)]);
                 break;
 
             default:
@@ -36,8 +36,10 @@ public class FoostepsSound : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "Wood":
-            case "Grass":
+            case "Ground":
+                material = collision.gameObject.tag;
+                break;
+            case "Water":
                 material = collision.gameObject.tag;
                 break;
 
