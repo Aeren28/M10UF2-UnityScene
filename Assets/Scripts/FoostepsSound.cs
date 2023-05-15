@@ -65,4 +65,25 @@ public class FoostepsSound : MonoBehaviour
                 break;
         }
     }
+    void OnCollisionStay(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Ground":
+                material = collision.gameObject.tag;
+                break;
+            case "Water":
+                material = collision.gameObject.tag;
+                break;
+            case "Stone":
+                material = collision.gameObject.tag;
+                break;
+            case "Wood":
+                material = collision.gameObject.tag;
+                break;
+
+            default:
+                break;
+        }
+    }
 }
